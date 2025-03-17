@@ -36,11 +36,11 @@ class MainActivity : AppCompatActivity() {
                 tvWarning.text ="填入完整訊息"
                 return@setOnClickListener
             }
-            if(edHeight.toString().toDouble()<0 || edHeight.toString().toDouble()>3){
+            if(edHeight.text.toString().toDouble()<0 || edHeight.text.toString().toDouble()>=3){
                 tvWarning.text ="填入正確的身高(公尺)"
                 return@setOnClickListener
             }
-            if(edWeight.toString().toDouble()<0 || edWeight.toString().toDouble()>300){
+            if(edWeight.text.toString().toDouble()<0 || edWeight.text.toString().toDouble()>300){
                 tvWarning.text ="填入正確的體重(公斤)"
                 return@setOnClickListener
             }

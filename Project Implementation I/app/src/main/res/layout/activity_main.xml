@@ -22,7 +22,7 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="48dp"
         android:text="BMI計算機"
-        android:textColor="#FFFFFF"
+        android:textColor="#CE85FF"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,8 +36,8 @@
         android:ems="10"
         android:hint="請輸入姓名"
         android:inputType="text"
-        android:textColor="#FFFFFF"
-        android:textColorHint="@color/white"
+        android:textColor="#FFAB00"
+        android:textColorHint="#FFAB00"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvGuide" />
@@ -47,9 +47,9 @@
         android:layout_width="158dp"
         android:layout_height="75dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#000000"
+        android:backgroundTint="#D50000"
         android:text="計算"
-        android:textSize="24sp"
+        android:textSize="34sp"
         app:layout_constraintStart_toStartOf="@+id/rdgrpGender"
         app:layout_constraintTop_toBottomOf="@+id/rdgrpGender" />
 
@@ -61,8 +61,8 @@
         android:ems="10"
         android:hint="請輸入身高(公尺)"
         android:inputType="numberDecimal"
-        android:textColor="#FFFFFF"
-        android:textColorHint="@color/white"
+        android:textColor="#FFAB00"
+        android:textColorHint="#FFAB00"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/edName"
         app:layout_constraintTop_toBottomOf="@+id/edName" />
@@ -75,8 +75,8 @@
         android:ems="10"
         android:hint="請輸入體重(公斤)"
         android:inputType="numberDecimal"
-        android:textColor="#FFFFFF"
-        android:textColorHint="@color/white"
+        android:textColor="#FFAB00"
+        android:textColorHint="#FFAB00"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/edHeight"
         app:layout_constraintTop_toBottomOf="@+id/edHeight" />
@@ -92,7 +92,7 @@
 
         <RadioButton
             android:id="@+id/radioButton"
-            android:layout_width="wrap_content"
+            android:layout_width="62dp"
             android:layout_height="match_parent"
             android:checked="true"
             android:text="男"
@@ -114,11 +114,11 @@
         android:id="@+id/tvText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/btnCalculate"
-        app:layout_constraintTop_toBottomOf="@+id/rdgrpGender" />
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/btnCalculate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

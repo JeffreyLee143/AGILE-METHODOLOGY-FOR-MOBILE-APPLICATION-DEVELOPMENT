@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioGroup
-import android.widget.Switch
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -27,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val edName = findViewById<EditText>(R.id.edName)
         val edHeight = findViewById<EditText>(R.id.edHeight)
         val edWeight = findViewById<EditText>(R.id.edWeight)
-        val rdgrpGender = findViewById<RadioGroup>(R.id.rdgrpGender) // 性別Radio Group
+        val radioGroupGender = findViewById<RadioGroup>(R.id.rdgrpGender) // 性別Radio Group
         val btnCalculate = findViewById<Button>(R.id.btnCalculate)
         val tvText = findViewById<TextView>(R.id.tvText)
         btnCalculate.setOnClickListener{
@@ -47,17 +46,29 @@ class MainActivity : AppCompatActivity() {
             }
             // 讀取資料、計算BMI
             val name = edName.text.toString()
-            val weight = edWeight.text.toString().toDouble()
-            val height = edWeight.text.toString().toDouble() // 次方要用double
-            val bmi = weight/(height.pow(2))
-            tvText.text = when{
-                bmi < 18.5 -> "過輕"
-                bmi >= 18.5 && bmi < 24.0 -> "正常"
-                bmi >= 24.0 && bmi < 27.0 -> "過重"
-                bmi >= 27.0 && bmi < 30.0 -> "輕度肥胖"
-                bmi >= 30 && bmi < 35.0 -> "中度肥胖"
-                else -> "重度肥胖"
+            val gender = when(radioGroupGender.checkedRadioButtonId){
+                R.id.radioButton -> "男"
+                else -> "女"
             }
+            val weight = edWeight.text.toString().toDouble()
+            val height = edHeight.text.toString().toDouble() // 次方要用double
+            val bmi = weight/(height.pow(2))
+
+            tvText.text = "姓名 : ${name}\n" +
+                          "性別 : ${gender}\n" +
+                          "BMI : ${String.format("%.1f", bmi)}\n"+
+                          "指標 : ${calculateBMI(bmi)}"
+
+        }
+    }
+    private fun calculateBMI(bmi : Double):String {
+        return when{
+            bmi < 18.5 -> "過輕"
+            bmi >= 18.5 && bmi < 24.0 -> "正常"
+            bmi >= 24.0 && bmi < 27.0 -> "過重"
+            bmi >= 27.0 && bmi < 30.0 -> "輕度肥胖"
+            bmi >= 30 && bmi < 35.0 -> "中度肥胖"
+            else -> "重度肥胖"
         }
     }
 }

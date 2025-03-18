@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
         */
 
         btnCalculate.setOnClickListener{
+            // 初始化
+            imgResult.setImageResource(0)
             // 確認所有資訊已被填寫
             if(edName.text.isEmpty()||edHeight.text.isEmpty()||edWeight.text.isEmpty()){
                 tvText.text ="填入完整訊息"

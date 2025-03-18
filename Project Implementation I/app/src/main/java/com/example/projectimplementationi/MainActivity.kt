@@ -3,6 +3,7 @@ package com.example.projectimplementationi
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -29,6 +30,15 @@ class MainActivity : AppCompatActivity() {
         val radioGroupGender = findViewById<RadioGroup>(R.id.rdgrpGender) // 性別Radio Group
         val btnCalculate = findViewById<Button>(R.id.btnCalculate)
         val tvText = findViewById<TextView>(R.id.tvText)
+        val imgResult = findViewById<ImageView>(R.id.img_result)
+        /*
+        val imgResource = listOf{
+            R.drawable.bad_to_health_1
+            R.drawable.bad_to_health_2
+            R.drawable.bad_to_health_3
+        }
+        */
+
         btnCalculate.setOnClickListener{
             // 確認所有資訊已被填寫
             if(edName.text.isEmpty()||edHeight.text.isEmpty()||edWeight.text.isEmpty()){
@@ -53,11 +63,17 @@ class MainActivity : AppCompatActivity() {
             val weight = edWeight.text.toString().toDouble()
             val height = edHeight.text.toString().toDouble() // 次方要用double
             val bmi = weight/(height.pow(2))
-
+            val condition = calculateBMI(bmi)
             tvText.text = "姓名 : ${name}\n" +
                           "性別 : ${gender}\n" +
                           "BMI : ${String.format("%.1f", bmi)}\n"+
-                          "指標 : ${calculateBMI(bmi)}"
+                          "指標 : ${condition}"
+            if(condition!="正常"){
+                //val img = imgResource.random()
+                imgResult.setImageResource(R.drawable.bad_to_health)
+            }else{
+                imgResult.setImageResource(R.drawable.good_to_health)
+            }
 
         }
     }
